@@ -15,6 +15,14 @@
       <a href="/">Bulletin Board</a>
     </nav>
     <hr>
+     <div class="container">
+    <% if flash.any? %>
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type == "notice" ? "success" : "danger" %>" style="color: green">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
